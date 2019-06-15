@@ -10,13 +10,13 @@ module.exports = vmSet => {
 	var {count, name} = vmSet,
 		token = '',
 		managerIp = '',
-		success = true
+		success = true,
+		regex = new RegExp('--token ([^ ]+)', 'm')
 
 	for(var i=1; i<=count; i++){
 		if(i===1){
 			managerIp = getVmIp({name, n:1})
-			var regex = new RegExp('--token ([^ ]+)', 'm'),
-				{stdout, code} = exec( swarmInitManager({vmId:`${name}1`, ip:managerIp}) )
+			var {stdout, code} = exec(swarmInitManager({vmId:`${name}1`, ip:managerIp}))
 			token = (regex.exec(stdout)||[])[1]
 			success = (code === 0) && success
 		}else{

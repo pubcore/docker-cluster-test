@@ -14,18 +14,17 @@ deploy a service, create some test-load and in parallel shoot down a node.
 #### Example
 ```
 'use strict'
-const {createVms, startVms, createSwarm, stopVms, deleteVms,
-	isReady, getVmIp} = require('@pubcore/docker-cluster-test'),
+const {installCluster, purgeCluster, isReady, getVmIp
+	} = require('@pubcore/docker-cluster-test'),
 	{deploy} = require('@pubcore/node-docker-build')
 
 //this will lead to 2 virtual machines with name vm1 and vm2
 vmSet = {name:'vm', count:2}
 
-createVms(vmSet)
-startVms(vmSet)
-createSwarm(vmSet)
+//shortcut for  createVms(vmSet), startVms(vmSet) and createSwarm(vmSet)
+installCluster(vmSet)
 
-//helper function to deploy a example service via ssh to the test-swarm
+//helper function to deploy an example service (via ssh to the test-cluster)
 deploy({
 	moduleName:resolve(__dirname, '../localhost/config'),
 	logPath:resolve(__dirname)
@@ -33,10 +32,9 @@ deploy({
 
 //if test-service is ready on vm2, do some-thing, here - for instance - cleanup
 isReady({host:getVmIp(vmSet), port:8080}).then(() => {
-	
-	//clean up
-	stopVms(vmSet)
-	deleteVms(vmSet)
+
+	//purge stuff, shortcut for stopVms(vmSet) and deleteVms(vmSet)
+	purgeCluster(vmSet)
 },
 ```
 

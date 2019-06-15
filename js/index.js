@@ -9,12 +9,13 @@ const isInstalled = require('./lib/isInstalled'),
 	createSwarm = require('./lib/createSwarm'),
 	isReady = require('./lib/isReady'),
 	getVmIp = require('./lib/getVmIp'),
+	installCluster = require('./lib/installCluster'),
+	purgeCluster = require('./lib/purgeCluster'),
 	{exec} = require('shelljs')
 
 module.exports = {
-	isInstalled, createVms,
+	isInstalled, createVms, startVms, createSwarm, isReady, getVmIp, stopVms,
+	deleteVms, installCluster, purgeCluster,
 	startVm: arg => exec(startVm(arg)).code === 0,
-	startVms, createSwarm, isReady, getVmIp,
-	stopVm: arg => exec(stopVm(arg)).code===0,
-	stopVms, deleteVms
+	stopVm: arg => exec(stopVm(arg)).code === 0
 }
