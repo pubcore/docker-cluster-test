@@ -2,7 +2,7 @@
 	"name": "@pubcore/docker-cluster-test",
 	"description": "create clusters for testing purpose",
 	"author": "pubcore",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"scripts": {
 		"test": "nyc --reporter=text mocha --inspect --recursive",
 		"coverage": "nyc report --reporter=text-lcov"
