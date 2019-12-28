@@ -10,11 +10,11 @@
 	"main": "js/index.js",
 	"license": "MIT",
 	"devDependencies": {
-		"@pubcore/node-docker-build": "^1.13.0",
-		"eslint": "^6.2.2",
+		"@pubcore/node-docker-build": "^1.13.2",
+		"eslint": "^6.8.0",
 		"eslint-plugin-mocha": "^5.3.0",
-		"mocha": "^6.2.0",
-		"nyc": "^14.1.1"
+		"mocha": "^6.2.2",
+		"nyc": "^15.0.0"
 	},
 	"dependencies": {
 		"is-port-reachable": "^2.0.1",
