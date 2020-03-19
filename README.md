@@ -7,7 +7,7 @@ deploy a service, create some test-load and in parallel shoot down a node.
 
 #### Prerequisites
 * Mac, Linux, Windows 7 and 8
-* docker, docker-machine
+* docker, docker-machine (https://docs.docker.com/machine/install-machine/)
 * virtualbox
 * nodejs
 
